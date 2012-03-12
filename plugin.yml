@@ -1,8 +1,0 @@
-name: Starter
-main: me.russjr08.plugins.Starter
-version: 1.0a
-description: >
-             My First Plugin / Template
-commands:
-  sendme:
-    description: Send the Player a Message!!
