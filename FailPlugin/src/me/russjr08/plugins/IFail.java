@@ -3,19 +3,17 @@ package me.russjr08.plugins;
 import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
-public class Starter extends JavaPlugin{
+public class IFail extends JavaPlugin{
 	public final Logger logger = Logger.getLogger("Minecraft");
-	public static Starter plugin;
+	public static IFail plugin;
 	public final MyPlayerListener pl = new MyPlayerListener();
 	
 	
