@@ -1,5 +1,0 @@
-name: IFail
-main: me.russjr08.plugins.IFail
-version: 2.0b
-description: >
-             Sends out a message as you when you mention "Fail" or "Failed", and kicks you for it!
