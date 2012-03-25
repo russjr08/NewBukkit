@@ -13,10 +13,10 @@ public class MyPlayerListener implements Listener{
 	public void onPlayerChat(PlayerChatEvent event){
 		Player player = event.getPlayer();
 		
-		if(player.isOp()){
+		if(player.isOp() && event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail")){
 			player.sendMessage(ChatColor.BLUE + "Ehh, you were close... lucky OPs!");
 		}
-		else if(event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") ){
+		else if(event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail") ){
 			event.setCancelled(true);
 			player.chat(ChatColor.DARK_RED + "I shouldn't say the word for doing something incorrectly!");
 			player.kickPlayer("For failing!");
