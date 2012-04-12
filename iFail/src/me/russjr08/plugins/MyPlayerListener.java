@@ -8,20 +8,50 @@ import org.bukkit.event.player.PlayerChatEvent;
 public class MyPlayerListener implements Listener{
 	public static IFail plugin;
 	
-	
+	private static final String[] keywords = {"fail", "fial", "f-a-i-l", "f.a.i.l.", "phail" };
+        
 	@EventHandler
 	public void onPlayerChat(PlayerChatEvent event){
 		Player player = event.getPlayer();
 		
-		if(player.isOp() && event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail")){
+		/*if(player.isOp() && event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail")){
 			player.sendMessage(ChatColor.BLUE + "Ehh, you were close... lucky OPs!");
 		}
 		else if(event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail") ){
 			event.setCancelled(true);
 			player.chat(ChatColor.DARK_RED + "I shouldn't say the word for doing something incorrectly!");
 			player.kickPlayer("For failing!");
-		}
+		} This is old very bad code... unorganized. Thanks to Canownueasy for showing me better ways of doing this!! */
+                        
+
+		if (!player.isOp()) {
+                    
+                   
+			for (String inputWord : keywords) {
+				if (event.getMessage().toLowerCase().contains(inputWord)) {
+					event.setCancelled(true);
+                                        player.chat(ChatColor.DARK_RED + "I shouldn't say the word for doing something incorrectly!");
+					player.kickPlayer("For failing!");
+					break;
+				
+			
+                                }
+        }
+        
 	}
-	
+                if (player.isOp()) {
+                    
+                    
+                    for (String inputWord : keywords) {
+                        if (event.getMessage().toLowerCase().contains(inputWord)){
+                            player.sendMessage(ChatColor.AQUA + "Ehh... you were close.. lucky OPs");
+                        }
+                    }
+                }
+        
 
 }
+}
+
+
+
