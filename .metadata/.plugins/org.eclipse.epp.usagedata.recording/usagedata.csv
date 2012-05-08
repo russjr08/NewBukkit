@@ -49,3 +49,28 @@ activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.Packa
 activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336454216382
 activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336454221323
 deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454223389
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454230726
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.export",1336454230870
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.export",1336454230870
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454238864
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454274963
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454275785
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454296505
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336454304012
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1336454306720
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454307360
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454798620
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336454800891
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454820859
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454853139
+error,log,,,"Core exception while retrieving the content description",1336454865024
+error,log,,,"Core exception while retrieving the content description",1336454865343
+started,bundle,org.eclipse.wst.sse.core,1.1.602.v201112071516,"org.eclipse.wst.sse.core",1336454867388
+started,bundle,org.eclipse.debug.ui,3.7.102.v20111129-1423_r372,"org.eclipse.debug.ui",1336454878045
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1336454883363
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454886976
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454894143
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.export",1336454894268
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.export",1336454894268
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454897582
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336454992879

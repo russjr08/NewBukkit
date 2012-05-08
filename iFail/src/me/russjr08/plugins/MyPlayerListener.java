@@ -21,7 +21,8 @@ public class MyPlayerListener implements Listener{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
 		
-		player.sendMessage(ChatColor.AQUA + "iFail is enabled");
+		
+		player.sendMessage(ChatColor.AQUA + "iFail is running on this server!");
 	}
 	
 	
