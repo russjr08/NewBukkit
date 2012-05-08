@@ -14,8 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class IFail extends JavaPlugin{
 	public final Logger logger = Logger.getLogger("Minecraft");
 	public static IFail plugin;
-	public final MyPlayerListener pl = new MyPlayerListener();
-	
+	public final MyPlayerListener pl = new MyPlayerListener(this);
 	
 		
 		
@@ -27,6 +26,13 @@ public class IFail extends JavaPlugin{
 		this.logger.info(pdfFile.getName() + " Has Been Enabled!"); //Display in the console that the plugin was enabled
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(this.pl, this);
+		getConfig().options().copyDefaults(true);
+		
+		saveConfig();
+		boolean isEnabled = getConfig().getBoolean("Enabled");
+		this.logger.info("Warning: You have iFail set to " + isEnabled);
+		
+		
 		}
 		
 		
@@ -39,7 +45,6 @@ public class IFail extends JavaPlugin{
 		public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){ //Setup a new command
 			Player player = (Player) sender; //Allows you to use the Player
 			if(commandLabel.equalsIgnoreCase("sendme")){
-				//player.chat("iFail!"); Wanting to do this :D
 				player.sendMessage(ChatColor.DARK_RED + "Sent!"); //Sends the message
 			}
 		return false;

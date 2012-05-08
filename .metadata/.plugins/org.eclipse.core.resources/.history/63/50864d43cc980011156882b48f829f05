@@ -1,0 +1,82 @@
+package me.russjr08.plugins;
+
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+public class MyPlayerListener implements Listener{
+	private IFail plugin;
+	
+	
+	private static final String[] keywords = {"fail", "fial", "f-a-i-l", "f.a.i.l.", "phail" };
+    
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event){
+		Player player = event.getPlayer();
+		
+		player.sendMessage(ChatColor.AQUA + "iFail is enabled");
+	}
+	
+	
+	
+	@EventHandler
+	public void onPlayerChat(PlayerChatEvent event){
+		Player player = event.getPlayer();
+		
+		/*if(player.isOp() && event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail")){
+			player.sendMessage(ChatColor.BLUE + "Ehh, you were close... lucky OPs!");
+		}
+		else if(event.getMessage().toLowerCase().contains("fail") || event.getMessage().toLowerCase().contains("fial") || event.getMessage().toLowerCase().contains("f-a-i-l") || event.getMessage().toLowerCase().contains("f.a.i.l.") || event.getMessage().toLowerCase().contains("phail") ){
+			event.setCancelled(true);
+			player.chat(ChatColor.DARK_RED + "I shouldn't say the word for doing something incorrectly!");
+			player.kickPlayer("For failing!");
+		} This is old very bad code... unorganized. Thanks to Canownueasy for showing me better ways of doing this!! */
+                        
+		Boolean isenabled = plugin.getConfig().getBoolean("Enabled", true);
+		String pluginOn = plugin.getConfig().getString("plugin-metrics.enabled");
+		
+		System.out.println("We are def. using this as the enabled value! " + isenabled);
+		
+		if (pluginOn == "yes"){
+			
+
+		
+		if (!player.isOp()) {
+                    
+                   
+			for (String inputWord : keywords) {
+				if (event.getMessage().toLowerCase().contains(inputWord)) {
+					event.setCancelled(true);
+                                        player.chat(ChatColor.DARK_RED + "I shouldn't say the word for doing something incorrectly!");
+					player.kickPlayer("For failing!");
+					break;
+				
+			
+                                }
+        }
+		}
+        
+	
+                if (player.isOp()) {
+                    
+                    
+                    for (String inputWord : keywords) {
+                        if (event.getMessage().toLowerCase().contains(inputWord)){
+                            player.sendMessage(ChatColor.AQUA + "Ehh... you were close.. lucky OPs");
+                            break;
+                        }
+                    }
+                }
+
+		}
+		else{
+			plugin.logger.info("Warning: iFail is disabled");
+		}
+}
+}
+
+
+

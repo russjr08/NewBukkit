@@ -1,0 +1,15 @@
+INDEX VERSION 1.126+H:\NewBukkit\.metadata\.plugins\org.eclipse.jdt.core
+2132627776.index
+2859602359.index
+2318452633.index
+1846131921.index
+4163410804.index
+3715478747.index
+2565464426.index
+3951040739.index
+1509762936.index
+2337743963.index
+42189474.index
+2599289435.index
+1428295495.index
+625535795.index

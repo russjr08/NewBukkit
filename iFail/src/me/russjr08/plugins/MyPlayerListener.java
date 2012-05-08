@@ -5,11 +5,27 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+
 public class MyPlayerListener implements Listener{
-	public static IFail plugin;
+	private IFail plugin;
+	
+	// Special thanks to nala3, we would have never had config options without this!
+	public MyPlayerListener(IFail plugin){
+        this.plugin = plugin;
+    }
 	
 	private static final String[] keywords = {"fail", "fial", "f-a-i-l", "f.a.i.l.", "phail" };
-        
+    
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event){
+		Player player = event.getPlayer();
+		
+		player.sendMessage(ChatColor.AQUA + "iFail is enabled");
+	}
+	
+	
+	
 	@EventHandler
 	public void onPlayerChat(PlayerChatEvent event){
 		Player player = event.getPlayer();
@@ -23,7 +39,14 @@ public class MyPlayerListener implements Listener{
 			player.kickPlayer("For failing!");
 		} This is old very bad code... unorganized. Thanks to Canownueasy for showing me better ways of doing this!! */
                         
+		Boolean isEnabled = plugin.getConfig().getBoolean("Enabled", true);
+		
 
+		
+		if (isEnabled == true){
+			
+
+		
 		if (!player.isOp()) {
                     
                    
@@ -37,19 +60,24 @@ public class MyPlayerListener implements Listener{
 			
                                 }
         }
+		}
         
-	}
+	
                 if (player.isOp()) {
                     
                     
                     for (String inputWord : keywords) {
                         if (event.getMessage().toLowerCase().contains(inputWord)){
                             player.sendMessage(ChatColor.AQUA + "Ehh... you were close.. lucky OPs");
+                            break;
                         }
                     }
                 }
-        
 
+		}
+		else{
+			plugin.logger.info("Warning: iFail is disabled");
+		}
 }
 }
 
