@@ -1,5 +1,5 @@
 name: iFail
 main: me.russjr08.plugins.IFail
-version: 1.4
+version: 1.5
 description: >
-             Sends out a message as you when you mention "Fail" or "Failed", and kicks you for it!
+             Sends out a message as you when you mention "Fail" or "Failed" or other configured words, and kicks you for it!

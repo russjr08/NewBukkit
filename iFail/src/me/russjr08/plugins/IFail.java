@@ -1,5 +1,6 @@
 package me.russjr08.plugins;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
@@ -24,8 +25,15 @@ public class IFail extends JavaPlugin{
 		public void onEnable(){
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info(pdfFile.getName() + " Has Been Enabled!"); //Display in the console that the plugin was enabled
+		String[] startingKeywords = {"fail", "fial", "f-a-i-l", "f.a.i.l.", "phail" };
+		
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(this.pl, this);
+		getConfig().addDefault("User-Control.Added-Words", Arrays.asList(startingKeywords));
+		getConfig().set("Configuration.kickMessage", "For Failing!");
+		getConfig().set("Configuration.chatMessage", "I shouldn't say the word for doing something incorrectly!");
+		getConfig().set("Configuration.loginMessage", "iFail is running on this server!");
+		getConfig().set("Configuration.permMessage", "Ehh... you were close.. lucky you have permission to use that..");
 		getConfig().options().copyDefaults(true);
 		
 		saveConfig();
@@ -40,6 +48,7 @@ public class IFail extends JavaPlugin{
 		public void onDisable(){
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() +  " Plugin has been disabled!"); //Display in the console that the plugin was disabled
+		
 		}
 
 		public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){ //Setup a new command

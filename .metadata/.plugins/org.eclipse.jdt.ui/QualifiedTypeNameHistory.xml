@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerJoinEvent"/>
+<fullyQualifiedTypeName name="org.bukkit.event.EventException"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.bukkit.configuration.file.FileConfiguration"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
 </qualifiedTypeNameHistroy>
