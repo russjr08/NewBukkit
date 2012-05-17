@@ -10,7 +10,8 @@ import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class MyPlayerListener implements Listener{
-	private IFail plugin;
+	public IFail plugin;
+	//ConfigFileOptions configOptions = new ConfigFileOptions(plugin);
 	
 	
 	
@@ -21,8 +22,11 @@ public class MyPlayerListener implements Listener{
 
     }
 	
+
+	ConfigFileOptions configOptions = new ConfigFileOptions(plugin);
 	
 
+	
 	
 	//private static final String[] keywords = {"fail", "fial", "f-a-i-l", "f.a.i.l.", "phail" };
 	
@@ -34,7 +38,9 @@ public class MyPlayerListener implements Listener{
 		
 		String loginMessage = plugin.getConfig().getString("Configuration.loginMessage");
 		Player player = event.getPlayer();
-		
+		if(configOptions.isVerboseEnabled() == true){
+			plugin.logger.info("Sending login message to player: " + player);
+		}
 	
 		player.sendMessage(ChatColor.AQUA + loginMessage);
 	}
@@ -78,6 +84,9 @@ public class MyPlayerListener implements Listener{
 					event.setCancelled(true);
                                         player.chat(ChatColor.DARK_RED + chatMessage);
 					player.kickPlayer(kickMessage);
+					if(configOptions.isVerboseEnabled() == true){
+						plugin.logger.info("Player: " + player + " has said a word on your config file and has been kicked with the following reason : " + kickMessage);
+					}
 					break;
 				
 			
@@ -92,6 +101,9 @@ public class MyPlayerListener implements Listener{
                     for (String inputWord : configWords) {
                         if (event.getMessage().toLowerCase().contains(inputWord)){
                             player.sendMessage(ChatColor.AQUA + permMessage);
+                            if(configOptions.isVerboseEnabled() == true){
+                            	plugin.logger.info("The player was exempt from the config words and was given this permission message " + permMessage);
+                            }
                             break;
                         }
                     }
@@ -99,7 +111,10 @@ public class MyPlayerListener implements Listener{
 
 		}
 		else{
-			plugin.logger.info("Warning: iFail is disabled");
+			if(configOptions.isVerboseEnabled() == true){
+				plugin.logger.info("Warning: iFail is disabled");
+			}
+			
 		}
 }
 }
