@@ -35,7 +35,7 @@ public class MyPlayerListener implements Listener{
     
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
-		
+		ConfigFileOptions configOptions = new ConfigFileOptions(plugin);
 		String loginMessage = plugin.getConfig().getString("Configuration.loginMessage");
 		Player player = event.getPlayer();
 		if(configOptions.isVerboseEnabled() == true){
@@ -62,7 +62,7 @@ public class MyPlayerListener implements Listener{
                         
 		Boolean isEnabled = plugin.getConfig().getBoolean("Enabled", true);
 		List<String> configWords = plugin.getConfig().getStringList("User-Control.Added-Words");
-
+		ConfigFileOptions configOptions = new ConfigFileOptions(plugin);
 		
 		String kickMessage = plugin.getConfig().getString("Configuration.kickMessage");
 		
@@ -102,7 +102,7 @@ public class MyPlayerListener implements Listener{
                         if (event.getMessage().toLowerCase().contains(inputWord)){
                             player.sendMessage(ChatColor.AQUA + permMessage);
                             if(configOptions.isVerboseEnabled() == true){
-                            	plugin.logger.info("The player was exempt from the config words and was given this permission message " + permMessage);
+                            	plugin.logger.info("The player: " + player + " was exempt from the config words and was given this permission message " + permMessage);
                             }
                             break;
                         }

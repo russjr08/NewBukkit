@@ -41,14 +41,14 @@ public class IFail extends JavaPlugin{
 			this.logger.info("Adding Default Configuration settings!");
 		}
 		getConfig().addDefault("User-Control.Added-Words", Arrays.asList(startingKeywords));
-		getConfig().set("Configuration.kickMessage", "For Failing!");
-		getConfig().set("Configuration.chatMessage", "I shouldn't say the word for doing something incorrectly!");
-		getConfig().set("Configuration.loginMessage", "iFail is running on this server!");
-		getConfig().set("Configuration.permMessage", "Ehh... you were close.. lucky you have permission to use that..");
-		getConfig().set("Configuration.verboseMessages", false);
+		getConfig().addDefault("Configuration.kickMessage", "For Failing!");
+		getConfig().addDefault("Configuration.chatMessage", "I shouldn't say the word for doing something incorrectly!");
+		getConfig().addDefault("Configuration.loginMessage", "iFail is running on this server!");
+		getConfig().addDefault("Configuration.permMessage", "Ehh... you were close.. lucky you have permission to use that..");
+		getConfig().addDefault("Configuration.verboseMessages", false);
 		getConfig().options().copyDefaults(true);
-		
 		saveConfig();
+		
 		if(configOptions.isVerboseEnabled() == true){
 			
 		
@@ -63,8 +63,10 @@ public class IFail extends JavaPlugin{
 		public void onDisable(){
 		ConfigFileOptions configOptions = new ConfigFileOptions(this);
 		PluginDescriptionFile pdfFile = this.getDescription();
+		saveConfig();
 		if(configOptions.isVerboseEnabled() == true){
 		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() +  " Plugin has been disabled!"); //Display in the console that the plugin was disabled
+		
 		}
 		}
 
