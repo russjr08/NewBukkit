@@ -46,12 +46,12 @@ public class IFail extends JavaPlugin{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		try {
+		/*try {
 			new AutoUpdate(this);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
         getConfig().addDefault("User-Control.Added-Words", Arrays.asList(startingKeywords));
 		getConfig().addDefault("Configuration.kickMessage", "For Failing!");
 		getConfig().addDefault("Configuration.chatMessage", "I shouldn't say the word for doing something incorrectly!");

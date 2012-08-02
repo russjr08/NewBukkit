@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class MyPlayerListener implements Listener{
@@ -117,6 +118,81 @@ public class MyPlayerListener implements Listener{
 			
 		}
 }
+	@EventHandler
+	public void playerCommand(PlayerCommandPreprocessEvent event){
+		Player player = event.getPlayer();
+		
+		/*String triedCommand = event.getMessage();
+		
+		player.sendMessage("You tried to do: " + triedCommand);
+		
+		List<String> configWords = plugin.getConfig().getStringList("User-Control.Added-Words");
+		
+		for(String inputWord : configWords){
+			if(event.getMessage().toLowerCase().contains(inputWord)){
+				player.sendMessage(ChatColor.BLUE + "Well, you said " + inputWord);
+			}
+		}*/
+		
+		Boolean isEnabled = plugin.getConfig().getBoolean("Enabled", true);
+		List<String> configWords = plugin.getConfig().getStringList("User-Control.Added-Words");
+		ConfigFileOptions configOptions = new ConfigFileOptions(plugin);
+		
+		String kickMessage = plugin.getConfig().getString("Configuration.kickMessage");
+		
+		String chatMessage = plugin.getConfig().getString("Configuration.chatMessage");
+		
+		
+		
+		String permMessage = plugin.getConfig().getString("Configuration.permMessage");
+		
+		if (isEnabled == true){
+			
+
+		
+		if (!player.isOp() || !player.hasPermission("iFail.bypass")) {
+                    
+                   
+			for (String inputWord : configWords) {
+				if (event.getMessage().toLowerCase().contains(inputWord)) {
+					event.setCancelled(true);
+                                        player.chat(ChatColor.DARK_RED + chatMessage);
+					player.kickPlayer(kickMessage);
+					if(configOptions.isVerboseEnabled() == true){
+						plugin.logger.info("Player: " + player + " has said a word on your config file and has been kicked with the following reason : " + kickMessage);
+					}
+					break;
+				
+			
+                                }
+        }
+		}
+        
+	
+                if (player.isOp() || player.hasPermission("iFail.bypass")) {
+                    
+                    
+                    for (String inputWord : configWords) {
+                        if (event.getMessage().toLowerCase().contains(inputWord)){
+                            player.sendMessage(ChatColor.AQUA + permMessage);
+                            if(configOptions.isVerboseEnabled() == true){
+                            	plugin.logger.info("The player: " + player + " was exempt from the config words and was given this permission message " + permMessage);
+                            }
+                            break;
+                        }
+                    }
+                }
+
+		}
+		else{
+			if(configOptions.isVerboseEnabled() == true){
+				plugin.logger.info("Warning: iFail is disabled");
+			}
+			
+		}
+		
+		
+	}
 }
 
 
